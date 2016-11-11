@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://contoso.com/schemas/people.xsd" uri="www.microsoft.com/ru-by/index.xml"/>
+    <system systemId="http://contoso.com/schemas/vehicles.xsd" uri="www.microsoft.com/ru-by/index.xml"/>
+    <system systemId="http://contoso.com/People" uri="www.microsoft.com/ru-by/index.xml"/>
+</catalog>

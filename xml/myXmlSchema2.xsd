@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<schema version="1.0"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="qualified"
+        targetNamespace="http://www.mynamespace.org/myXmlSchema2"
+        xmlns:mn="http://www.mynamespace.org/myXmlSchema2">
+    
+    <element name="menu">
+        <complexType>
+            <sequence>
+                <element name="category" type="mn:Category" minOccurs="0" maxOccurs="unbounded"/> 
+            </sequence>
+        </complexType>
+    </element>
+    
+    <complexType name="Dish-choice">
+        <sequence>
+            <element name="dish-choice-name" type="mn:Enumeration"/>
+            <element name="dish-choice-price" type="int" minOccurs="0"/>
+        </sequence>
+        <attribute name="id" type="int" />
+    </complexType>
+    
+
+    <complexType name="Dish-choices">
+        <sequence>
+            <element name="dish-choice" type="mn:Dish-choice" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+        
+    <complexType name="Dish">
+        <sequence>
+            <element name="dish-photo" type="string" minOccurs="0"/> 
+            <element name="dish-name" type="string"/> 
+            <element name="dish-description" type="string" minOccurs="0"/>
+            <element name="dish-portion" type="string"/> 
+            <element name="dish-price" type="mn:Price" minOccurs="0"/>
+            <element name="dish-choices" type="mn:Dish-choices" minOccurs="0"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="Category">
+        <sequence>
+            <element name="dish" type="mn:Dish" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="name" type="string" />
+    </complexType>
+    
+    <simpleType name="Price">
+        <restriction base="positiveInteger">
+            <maxExclusive value="300"/>
+        </restriction>
+    </simpleType>
+    
+    <simpleType name="Enumeration">
+        <restriction base="string">
+            <enumeration value="С помидорами"/>
+            <enumeration value="С чесноком"/>
+            <enumeration value="С орехами"/>
+            <enumeration value="С курицей"/>
+            <enumeration value="С грибами"/>
+            <enumeration value="С отварные"/>
+            <enumeration value="С жаренные"/>
+        </restriction>
+    </simpleType>
+
+</schema>
